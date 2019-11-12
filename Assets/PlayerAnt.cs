@@ -15,10 +15,10 @@ public class PlayerAnt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * speed);
+        transform.Translate(1 * speed, 0, 0);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        speed = 0;
     }
 }
