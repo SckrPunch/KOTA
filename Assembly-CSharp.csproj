@@ -62,10 +62,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\EnemyAnt.cs" />
-    <Compile Include="Assets\FoodController.cs" />
-    <Compile Include="Assets\LoadMain.cs" />
-    <Compile Include="Assets\PlayerAnt.cs" />
+    <Compile Include="Assets\Scripts\EnemyAnt.cs" />
+    <Compile Include="Assets\Scripts\FoodController.cs" />
+    <Compile Include="Assets\Scripts\LoadMain.cs" />
+    <Compile Include="Assets\Scripts\PlayerAnt.cs" />
+    <Compile Include="Assets\Scripts\ShowHideSpawn.cs" />
+    <Compile Include="Assets\SoldierSpawn.cs" />
+    <Compile Include="Assets\SpawnIndicatorClick.cs" />
+    <Compile Include="Assets\WorkerSpawn.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/aleja/Documents/Projects/KotA/King of the Anthill/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

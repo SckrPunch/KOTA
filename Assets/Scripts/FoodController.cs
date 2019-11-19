@@ -32,7 +32,7 @@ public class FoodController : MonoBehaviour
         //Debug.Log(total_count * speed);
         if(move_flag == true)
         {
-            Debug.Log(total_count);
+            //Debug.Log(total_count);
             rb2d.transform.parent.Translate(total_count * speed * Time.deltaTime, 0, 0);
         }
     }
