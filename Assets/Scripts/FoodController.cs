@@ -9,8 +9,8 @@ public class FoodController : MonoBehaviour
 
     public float speed;
 
-    List<string> PlayerColliders = new List<string>();
-    List<string> EnemyColliders = new List<string>();
+    public static List<string> PlayerColliders = new List<string>();
+    public static List<string> EnemyColliders = new List<string>();
     // Start is called before the first frame update
     void Start()
     {
