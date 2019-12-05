@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5808585565698954102}
   - component: {fileID: 9184704602278006361}
   - component: {fileID: -654088136593479658}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy Soldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,8 +67,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1764394711
-  m_SortingLayer: 4
+  m_SortingLayerID: 1994940377
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9a916b5f8f4d6c74fafe3571b902dc0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

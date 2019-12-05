@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3208744821910200520}
   - component: {fileID: 3208744821910200523}
   - component: {fileID: 5176468853046965714}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: PlayerSoldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,8 +67,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1764394711
-  m_SortingLayer: 4
+  m_SortingLayerID: 1994940377
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 55065e82f1b729b4abfd90d6788994e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

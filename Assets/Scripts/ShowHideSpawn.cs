@@ -7,7 +7,6 @@ public class ShowHideSpawn : MonoBehaviour
     public GameObject SpawnIndicator;
     public void showSpawn()
     {
-        //Debug.Log(SpawnIndicator.activeSelf);
 
         if(SpawnIndicator.activeSelf == false)
         {
