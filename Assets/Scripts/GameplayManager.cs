@@ -1,62 +1,218 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameplayManager : MonoBehaviour
 {
-    private int spawnType;
-    private int soldierTimerEnable;
-    private int workerTimerEnable;
+    private int spawnTypeP;
+    private int spawnTypeE;
+    private int workerCountP;
+    private int soldierCountP;
+    private int workerCountE;
+    private int soldierCountE;
+    private float workerTimer;
+    private float soldierTimer;
+
+    public int soldierMax;
+    public int workerMax;
     public float soldierTime;
     public float workerTime;
+    public Text soldierTextP;
+    public Text workerTextP;
+    public Text soldierTextE;
+    public Text workerTextE;
     
-    public void WorkerSelector()
+    public void WorkerSelectorP()
     {
-        spawnType = 0;
-        //Debug.Log(spawnType);
+        spawnTypeP = 0;
     }
 
-    public void SoldierSelector()
+    public void SoldierSelectorP()
     {
-        spawnType = 1;
-        //Debug.Log(spawnType);
+        spawnTypeP = 1;
     }
 
-    public void EnableSoldierTimer()
+    public void WorkerSelectorE()
     {
-        soldierTimerEnable = 1;
+        spawnTypeE = 0;
     }
 
-    public void EnableWorkerTimer()
+    public void SoldierSelectorE()
     {
-        workerTimerEnable = 1;
+        spawnTypeE = 1;
     }
 
-    private void ResetSoldierTimer()
+    public int GetUnitSpawnP()
     {
-        soldierTime = 10f;
+        return spawnTypeP;
     }
 
-    private void ResetWorkerTimer()
+    public int GetUnitSpawnE()
     {
-        workerTime = 5f;
+        return spawnTypeE;
     }
 
-    public int GetUnitSpawn()
+    public bool CheckSpawn(int spwnType, int plyrCheck)
     {
-        return spawnType;
+        switch(plyrCheck)
+        {
+            case 0:
+                switch (spwnType)
+                {
+                    case 0:
+                        if (workerCountP > 0)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    case 1:
+                        if (soldierCountP > 0)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    default:
+                        Debug.Log("Uncaught spawn check error.");
+                        return false;
+                }
+            case 1:
+                switch (spwnType)
+                {
+                    case 0:
+                        if (workerCountE > 0)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    case 1:
+                        if (soldierCountE > 0)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    default:
+                        Debug.Log("Uncaught spawn check error.");
+                        return false;
+                }
+            default:
+                Debug.Log("Unhandled spawning player check error");
+                return false;
+        }
+    }
+
+    public void UseSpawn(int st, int plyrCheck)
+    {
+        switch(plyrCheck)
+        {
+            case 0:
+                switch (st)
+                {
+                    case 0:
+                        workerCountP--;
+                        UpdateWorkerTextP();
+                        break;
+                    case 1:
+                        soldierCountP--;
+                        UpdateSoldierTextP();
+                        break;
+                    default:
+                        Debug.Log("Uncaught spawn subtraction error");
+                        break;
+                }
+                break;
+            case 1:
+                switch (st)
+                {
+                    case 0:
+                        workerCountE--;
+                        UpdateWorkerTextE();
+                        break;
+                    case 1:
+                        soldierCountE--;
+                        UpdateSoldierTextE();
+                        break;
+                    default:
+                        Debug.Log("Uncaught spawn subtraction error");
+                        break;
+                }
+                break;
+            default:
+                Debug.Log("Unhandled player check error");
+                break;
+        }
+        
+    }
+
+    private void UpdateSoldierTextP()
+    {
+        soldierTextP.text = "Soldier Spawns: " + soldierCountP.ToString();
+    }
+
+    private void UpdateWorkerTextP()
+    {
+        workerTextP.text = "Worker Spawns: " + workerCountP.ToString();
+    }
+
+    private void UpdateSoldierTextE()
+    {
+        soldierTextE.text = "Soldier Spawns: " + soldierCountE.ToString();
+    }
+
+    private void UpdateWorkerTextE()
+    {
+        workerTextE.text = "Worker Spawns: " + workerCountE.ToString();
     }
 
     private void Update()
     {
-        if(soldierTimerEnable == 1)
+        soldierTimer -= Time.deltaTime;
+        workerTimer -= Time.deltaTime;
+
+        if (Mathf.Abs(soldierTimer) >= soldierTime)
         {
-            soldierTime -= Time.deltaTime;
+            soldierTimer = 0f;
+
+            if (soldierCountP < soldierMax)
+            {
+                soldierCountP++;
+                UpdateSoldierTextP();
+            }
+
+            if(soldierCountE < soldierMax)
+            {
+                soldierCountE++;
+                UpdateSoldierTextE();
+            }
         }
 
-        if(workerTimerEnable == 1)
+        if (Mathf.Abs(workerTimer) >= workerTime)
         {
-            workerTime -= Time.deltaTime;
+            workerTimer = 0f;
+
+            if(workerCountP < workerMax)
+            {
+                workerCountP++;
+                UpdateWorkerTextP();
+            }
+
+            if(workerCountP < workerMax)
+            {
+                workerCountE++;
+                UpdateWorkerTextE();
+            }
         }
     }
 }

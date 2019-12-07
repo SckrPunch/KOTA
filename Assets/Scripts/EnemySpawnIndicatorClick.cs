@@ -75,31 +75,37 @@ public class EnemySpawnIndicatorClick : MonoBehaviour
     private void OnMouseDown()
     {
         EnemyIndicator.SetActive(false);
-        GameplayManager spawnType = gameplayManager.GetComponent<GameplayManager>();
-        int st = gameplayManager.GetComponent<GameplayManager>().GetUnitSpawn();
+        int st = gameplayManager.GetComponent<GameplayManager>().GetUnitSpawnE();
+        bool spawnPossible = gameplayManager.GetComponent<GameplayManager>().CheckSpawn(st, 1);
+
 
 
         colliderPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (colliderPos.y >= 3.32 && colliderPos.y <= 4.32)
+        if (colliderPos.y >= 3.32 && colliderPos.y <= 4.32 && spawnPossible)
         {
             UnitSpawner(st, 1);
+            gameplayManager.GetComponent<GameplayManager>().UseSpawn(st, 1);
         }
-        else if (colliderPos.y >= 1.41 && colliderPos.y <= 2.41)
+        else if (colliderPos.y >= 1.41 && colliderPos.y <= 2.41 && spawnPossible)
         {
             UnitSpawner(st, 2);
+            gameplayManager.GetComponent<GameplayManager>().UseSpawn(st, 1);
         }
-        else if (colliderPos.y >= -0.53 && colliderPos.y <= 0.47)
+        else if (colliderPos.y >= -0.53 && colliderPos.y <= 0.47 && spawnPossible)
         {
             UnitSpawner(st, 3);
+            gameplayManager.GetComponent<GameplayManager>().UseSpawn(st, 1);
         }
-        else if (colliderPos.y >= -2.46 && colliderPos.y <= -1.46)
+        else if (colliderPos.y >= -2.46 && colliderPos.y <= -1.46 && spawnPossible)
         {
             UnitSpawner(st, 4);
+            gameplayManager.GetComponent<GameplayManager>().UseSpawn(st, 1);
         }
-        else if (colliderPos.y >= -4.4 && colliderPos.y <= -3.4)
+        else if (colliderPos.y >= -4.4 && colliderPos.y <= -3.4 && spawnPossible)
         {
             UnitSpawner(st, 5);
+            gameplayManager.GetComponent<GameplayManager>().UseSpawn(st, 1);
         }
     }
 }
