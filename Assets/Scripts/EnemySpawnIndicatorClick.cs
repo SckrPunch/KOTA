@@ -8,6 +8,7 @@ public class EnemySpawnIndicatorClick : MonoBehaviour
     public GameObject WorkerPrefab;
     public GameObject SoldierPrefab;
     private GameObject gameplayManager;
+    int count = 0;
 
     Vector3 colliderPos;
 
@@ -25,18 +26,23 @@ public class EnemySpawnIndicatorClick : MonoBehaviour
                 {
                     case 1:
                         Instantiate(WorkerPrefab, new Vector3(7.428f, 3.82f, 0), Quaternion.Euler(0, 0, 180));
+                        count = 1;
                         break;
                     case 2:
                         Instantiate(WorkerPrefab, new Vector3(7.428f, 1.91f, 0), Quaternion.Euler(0, 0, 180));
+                        count = 1;
                         break;
                     case 3:
                         Instantiate(WorkerPrefab, new Vector3(7.428f, -0.03f, 0), Quaternion.Euler(0, 0, 180));
+                        count = 1;
                         break;
                     case 4:
                         Instantiate(WorkerPrefab, new Vector3(7.428f, -1.96f, 0), Quaternion.Euler(0, 0, 180));
+                        count = 1;
                         break;
                     case 5:
                         Instantiate(WorkerPrefab, new Vector3(7.428f, -3.9f, 0), Quaternion.Euler(0, 0, 180));
+                        count = 1;
                         break;
                     default:
                         Debug.Log("Uncaught error with spawn location");

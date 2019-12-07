@@ -20,6 +20,7 @@ public class EnemyRocketScript : MonoBehaviour
             string Player = collision.gameObject.name;
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            FindObjectOfType<PlayerAnt>().speed = 0.05f;
             FoodController.PlayerColliders.Remove(Player);
         }
     }

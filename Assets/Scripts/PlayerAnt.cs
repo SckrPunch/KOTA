@@ -20,5 +20,11 @@ public class PlayerAnt : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         speed = 0;
+        if (SpawnIndicatorClick.count == 1)
+        {
+            FoodController.PlayerColliders.Add("PlayerAnt(Clone)");
+            gameObject.transform.parent = FindObjectOfType<FoodController>().transform.parent;
+            SpawnIndicatorClick.count = 0;
+        }
     }
 }

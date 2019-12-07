@@ -39,9 +39,10 @@ public class FoodController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        bool Player_exist = PlayerColliders.Contains(collision.gameObject.name);
+        bool enemy_exist = EnemyColliders.Contains(collision.gameObject.name);
 
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !Player_exist)
         {
             PlayerColliders.Add(collision.gameObject.name);
             //Debug.Log("No of players: " + PlayerColliders.Count);
@@ -49,7 +50,7 @@ public class FoodController : MonoBehaviour
             //Debug.Log(collision.transform.parent);
             move_flag = true;
         }
-        else if(collision.gameObject.tag == "Enemy")
+        else if(collision.gameObject.tag == "Enemy" && !enemy_exist)
         {
             EnemyColliders.Add(collision.gameObject.name);
             //Debug.Log("No of enemies: "+ EnemyColliders.Count);
