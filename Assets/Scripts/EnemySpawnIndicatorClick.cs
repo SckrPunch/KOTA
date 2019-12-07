@@ -8,7 +8,7 @@ public class EnemySpawnIndicatorClick : MonoBehaviour
     public GameObject WorkerPrefab;
     public GameObject SoldierPrefab;
     private GameObject gameplayManager;
-    int count = 0;
+    public static int count = 0;
 
     Vector3 colliderPos;
 

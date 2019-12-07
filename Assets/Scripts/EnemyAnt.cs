@@ -19,5 +19,11 @@ public class EnemyAnt : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         speed = 0;
+        if (EnemySpawnIndicatorClick.count == 1)
+        {
+            FoodController.EnemyColliders.Add("EnemyAnt(Clone)");
+            gameObject.transform.parent = FindObjectOfType<FoodController>().transform.parent;
+            EnemySpawnIndicatorClick.count = 0;
+        }
     }
 }
