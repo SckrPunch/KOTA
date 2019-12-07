@@ -1607,7 +1607,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2126757702}
-        m_MethodName: WorkerSelector
+        m_MethodName: WorkerSelectorP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1751,7 +1751,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2126757702}
-        m_MethodName: SoldierSelector
+        m_MethodName: SoldierSelectorP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
