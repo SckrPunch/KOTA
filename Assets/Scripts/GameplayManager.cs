@@ -53,6 +53,26 @@ public class GameplayManager : MonoBehaviour
         return spawnTypeE;
     }
 
+    public int ReturnWorkerSpawns()
+    {
+        return workerCountE;
+    }
+
+    public int ReturnSoldierSpawns()
+    {
+        return soldierCountE;
+    }
+
+    public int ReturnWorkerMax()
+    {
+        return workerMax;
+    }
+
+    public int ReturnSoldierMax()
+    {
+        return soldierMax;
+    }
+
     public bool CheckSpawn(int spwnType, int plyrCheck)
     {
         switch(plyrCheck)

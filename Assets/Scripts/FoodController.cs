@@ -23,16 +23,9 @@ public class FoodController : MonoBehaviour
         int player_count = PlayerColliders.Count;
         int enemy_count = EnemyColliders.Count;
         int total_count = enemy_count - player_count;
-        //Debug.Log("Player count:" + player_count);
-        //Debug.Log("Enemy count:" + enemy_count);
-        //Debug.Log("Total count:" + total_count);
-        //Debug.Log(rb2d.position.y);
-        //rb2d.transform.parent.position = new Vector2(total_count * speed * Time.deltaTime, rb2d.transform.position.y);
-        //transform.position = new Vector2(total_count * speed * Time.deltaTime, transform.position.y);
-        //Debug.Log(total_count * speed);
+
         if(move_flag == true)
         {
-            //Debug.Log(total_count);
             rb2d.transform.parent.Translate(total_count * speed * Time.deltaTime, 0, 0);
         }
     }
@@ -45,15 +38,12 @@ public class FoodController : MonoBehaviour
         if (collision.gameObject.tag == "Player" && !Player_exist)
         {
             PlayerColliders.Add(collision.gameObject.name);
-            //Debug.Log("No of players: " + PlayerColliders.Count);
             collision.transform.parent = rb2d.transform.parent;
-            //Debug.Log(collision.transform.parent);
             move_flag = true;
         }
         else if(collision.gameObject.tag == "Enemy" && !enemy_exist)
         {
             EnemyColliders.Add(collision.gameObject.name);
-            //Debug.Log("No of enemies: "+ EnemyColliders.Count);
             collision.transform.parent = rb2d.transform.parent;
             move_flag = true;
         }
@@ -62,7 +52,6 @@ public class FoodController : MonoBehaviour
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), rb2d.GetComponent<Collider2D>());
         }
 
-        //Debug.Log(collision.transform.parent.gameObject.name);
     }
 
 }
